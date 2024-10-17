@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "@urso/core": "^0.8.1",
+    "foo": "^1.0.0",
     "next": "14.2.15",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "yarn": "^1.22.22"
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -15,7 +15,7 @@ export const Reel: React.FC<ReelProps> = ({ x, y, symbols }) => {
   const spin = () => {
     setIsSpinning(true);
 
-    // Create a timeline for the spinning animation
+   
     const timeline = new urso.timeline.Timeline();
     timeline.add(spriteRef.current!, {
       rotation: 360 * 5, // Rotate 5 times
@@ -28,9 +28,22 @@ export const Reel: React.FC<ReelProps> = ({ x, y, symbols }) => {
   const stopAtSymbol = (symbolIndex: number) => {
     setIsSpinning(false);
     setCurrentSymbolIndex(symbolIndex);
-
-    // You might want to add a subtle bounce effect here when the reel stops
+  
+    // Add bounce effect
+    const timeline = new urso.timeline.Timeline();
+    timeline.add(spriteRef.current!, {
+      scaleY: 0.9, // Scale down slightly
+      duration: 0.1, // Short duration for the bounce
+      easing: urso.easing.easeOutCubic,
+    });
+    timeline.add(spriteRef.current!, {
+      scaleY: 1, // Scale back to original size
+      duration: 0.1,
+      easing: urso.easing.easeInCubic,
+    });
+    timeline.play();
   };
+  
 
   useEffect(() => {
     if (isSpinning) {
