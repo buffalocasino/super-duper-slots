@@ -1,7 +1,7 @@
 "use client";
 
 import * as urso from '@urso/core';
-import { MainScene } from './scenes/MainScene.1';
+import { MainScene } from './scenes/MainScene';
 
 export default function Game() {
   useEffect(() => {
